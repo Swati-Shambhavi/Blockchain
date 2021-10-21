@@ -1,0 +1,3 @@
+1. web3.js => This is a library. It is sort of a portal/window into the Ethereum network. It is going to allow us to send money, store date, deploy contracts,etc. This is used to create application (programatic access to Ethereum network).
+
+2. Metamask => It is a chrome extension that allows people (non-programmers) to interact with the ethereum network.
