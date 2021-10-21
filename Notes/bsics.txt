@@ -1,3 +1,12 @@
 1. web3.js => This is a library. It is sort of a portal/window into the Ethereum network. It is going to allow us to send money, store date, deploy contracts,etc. This is used to create application (programatic access to Ethereum network).
 
 2. Metamask => It is a chrome extension that allows people (non-programmers) to interact with the ethereum network.
+
+3. When metamask creates an account, it has 3 distinct pieces of information that constitutes an account in Ethereum network.
+
+> Account address - It can be thought of as an email address. It is a unique identifier which can be share with anyone which tells other people who u are. 
+> Public key & Private key - These 2 pieces of info combine together to form password. These are used to authorize the sending of funds from your acc to others account.
+
+Account n/w, public and private keys are all stored as hexadecimal numbers.
+
+4. Block time => The amount of time that it takes to hash everything from 0 to the target nonce value.
