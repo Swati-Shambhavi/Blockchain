@@ -1,0 +1,5 @@
+Important terms
+-----------------------------------------------
+
+1. Smart contract - It can be imagined to be like an account, but rather than controlled by a human, it is controlled by code. This code is authored by a developer, the code instructs the smart contract how to behave.
+

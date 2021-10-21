@@ -1,0 +1,5 @@
+Solidity gotchas:
+
+1. Free get function with public storage variable- When we create a public storage variable(instance variable), solidity creates a function with same name as that of the variable's, by using this fn we can get to know what content is stored in that variable at a given time. SO there is no need to create another function just to get the value of a storage varible.
+
+2. No data needs to be returned from the function in which we are modifying the storage variable. Even if we do, it won't really return the value since transaction takes some time to get finished. It will return the transaction hash though.

@@ -1,0 +1,16 @@
+1. Anytime we want to update any data on the blockchain, we have to submit a transaction. We also have to wait for it to get mined (go through the proof of work algo). This rule will hold true for everything we do with Ethereum. 
+
+2. Running contract function-
+There are two ways in which a contract function is invoked. First when it involes updating the data and sencond when it doesn't update/change the data. 
+
+> "Calling" a function: 
+    *Cannot  modify the contact's data
+    *Can return data
+    *Runs instantly
+    *Free to do
+
+>  Sending a transaction to a function:
+    *Can modify contact's data
+    *Takes time to execute
+    *Runs the transaction hash
+    *Costs money
