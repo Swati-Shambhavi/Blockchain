@@ -1,0 +1,57 @@
+>ABI - It is the communication layer between solidity world and javascript world.
+
+> Ganache/TestRPC - Our local test network is going to be created by a library called Ganache (previously called TestRPC). This is where we will deploy our bytecode (which we will get after compiling our contract).
+
+> Test Architecture
+
+Solidity Compiler : This will spit out 1) bytecode and 2)ABI
+1)Bytecode- This bytecode will be deployed in our locally created test network by Ganache.
+2)ABI - We are going to take our javascript interface(or ABI) and we are going to feed that into Web3.
+Note: Web3 is a library that we use to get a programatic access to a deployed contract on the blockchain.
+So, web3 is our portal to what is going on in the local test network
+
+Terms related to test:
+1)assert module - It is a standard module which is built into nodejs runtime. It is used for making assertions about test (we ware going to assert that some value is equal to another value).
+
+
+
+Q. How will we use Mocha to test Ethereum
+Cycle:
+1. Mocha starts
+2. Deploy a new contract
+3. Manipulate the contract
+4. Make an assertion about the contract
+5. Go back to step 2
+
+1. In step 1, mocha is going to boot up and automatically load up Inbox.test.js file and starts to execute the series of test in it
+2. We r going to take our contract bytecode and deploy it to our local test network(ganache). This will deploy a new instance of our contract.
+3. We will write some code to manipulate that contract in some fashion.
+4. We will make some assertion about a value that is tied to the contract.
+5. We then go back to the top, deploy a fresh new contract and then manipulate the contract in some other fashion.
+
+Eg of testing.
+class Car {
+  park() {
+    return 'stopped';
+  }
+  drive() {
+    return 'vrooom';
+  }
+}
+
+//it() is the fundamental
+//describe is used to group together related tests
+let car;
+beforeEach(() => {
+  car = new Car();
+});
+describe('Car', () => {
+  // const car  = new Car();
+  it('can park', () => {
+    assert.equal(car.park(), 'stopped');
+  });
+  it('can drive', () => {
+    // const car = new Car();
+    assert.equal(car.drive(), 'vrooom');
+  });
+});

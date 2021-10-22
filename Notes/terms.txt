@@ -3,3 +3,11 @@ Important terms
 
 1. Smart contract - It can be imagined to be like an account, but rather than controlled by a human, it is controlled by code. This code is authored by a developer, the code instructs the smart contract how to behave.
 
+2. gasPrice - Amount of Wei(unit of ether) the sender is willing to pay per unit gas to get this transaction processed.
+
+3. startGas/gasLimit - Units of gas that this transaction can consume.
+
+4. ABI - It is the communication layer between solidity world and javascript world.
+
+5. Ganache/TestRPC - Our local test network is going to be created by a library called Ganache (previously called TestRPC). This is where we will deploy our bytecode (which we will get after compiling our contract).
+

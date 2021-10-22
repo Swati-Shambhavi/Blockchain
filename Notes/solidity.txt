@@ -14,3 +14,4 @@ There are two ways in which a contract function is invoked. First when it invole
     *Takes time to execute
     *Runs the transaction hash
     *Costs money
+
