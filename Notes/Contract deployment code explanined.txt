@@ -1,0 +1,33 @@
+inbox = await new web3.eth.Contract(JSON.parse(interface)) //	(a) this teaches web3 about what methods an inbox contract has
+    .deploy({data: bytecode,arguments: ['Hi there!'],}) 	// (b) this tells web3 that we want to deploy a new copy of this very contract
+    .send({ from: accounts[0], gas: '1000000' }); 	// (c) instructs web3 to send out a transaction that creates this contract
+
+line (a): We are using Contract propertyy of eth module which allows us to either interact with a contract which exists on a block chain already, or to 
+create and deploy a new contract.
+The 1st arg to the constructor is the ABI, ABI is how we get some intermediation/interface b/w solidity world and the js world.
+Notice that we are pasrsing the interface by doing 'JSON.parse(interface), that is bcz when the solidity compiler complied our contract, it spit out the 
+interface JSON representation of our interface, so in order to pass an actual js object to out contract we are converting json to js.
+So, the first line tells web3 that there is a contract out there and here is the interface that it expects. The 1st line tells nothing about whether 
+the contract has been deployed or whether we are going to create it or nything about the data inside the contract.
+
+line (b): This actually tells web3 that we are going to deploy a new contract. This starts to create a transaction object that has a data property 
+(which will contain the bytecode) and also an argument property which will contain the list of args to be passed into the constructor fn of the contract
+ when it is created.
+
+line (c): This line actually takes this idea of a contract that has been customized with some amount of code and DEPLOYS IT TO THE NETWORK. So,
+ calling deploy() doesn't deploy anything, it just creates an obj which can be deployed to the network. It is the send() that triggers the 
+communication from web3 off to the network.
+
+Important: Web3 is used both for deploying a new contract and to get access of a contract which has already been deployed to the network. Depending upon what we are trying to do, we need to have different amount of information. 
+
+> Interact with deployed contract=> ABI(needed) | Bytecode(not needed) | Address of deployed contract(needed)
+> Create a contract=> ABI(needed) | bytecode(needed) | Address of deployed cntrct (not needed)
+
+inbox = await new web3.eth.Contract(JSON.parse(interface))
+    .deploy({
+      data: bytecode,
+      arguments: ['Hi there!'],
+    })
+    .send({ from: accounts[0], gas: '1000000' });
+
+The value which is returned from the above function is the direct reference to the Inbox contract. this is the js representation of our contract. We can interact with this obj and call fn on it which will actually correspond to the fn in our contract.This onj represents what exists on the blockchain, we can call fn on it to interact directly with contract that exists on the blockchain.
